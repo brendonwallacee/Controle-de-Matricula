@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://50.6.138.79:3306/icmnts66_db_ctrl_batricula
+    username: icmnts66_acessocairu
+    password: acessocairu
+    driver-class-name: com.mysql.cj.jdbc.Driver

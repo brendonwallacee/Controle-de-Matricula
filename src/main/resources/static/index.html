@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciplinas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Disciplinas</h1>
+
+<table id="disciplinas-table">
+    <thead>
+    <tr>
+        <th>Nome da Disciplina</th>
+        <th>Carga Horária</th>
+        <th>Professor</th>
+        <th>Limite de Alunos</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        fetch('http://localhost:8080/disciplinas')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('disciplinas-table').getElementsByTagName('tbody')[0];
+
+                data.forEach(disciplina => {
+                    const row = document.createElement('tr');
+
+                    const cellNome = document.createElement('td');
+                    cellNome.textContent = disciplina.nomeDisciplina;
+                    row.appendChild(cellNome);
+
+                    const cellCargaHoraria = document.createElement('td');
+                    cellCargaHoraria.textContent = disciplina.cargaHoraria;
+                    row.appendChild(cellCargaHoraria);
+
+                    const cellProfessor = document.createElement('td');
+                    cellProfessor.textContent = disciplina.professor;
+                    row.appendChild(cellProfessor);
+
+                    const cellLimiteAlunos = document.createElement('td');
+                    cellLimiteAlunos.textContent = disciplina.limiteAlunos;
+                    row.appendChild(cellLimiteAlunos);
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    });
+</script>
+
+</body>
+</html>
