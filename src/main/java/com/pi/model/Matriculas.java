@@ -10,7 +10,7 @@ public class Matriculas {
     private int idMat;
 
     @ManyToOne
-    @Column(name = "disciplina")
+    @JoinColumn(name = "disciplina")
     private Disciplinas disciplina;
 
     @Column(name = "dataMatricula")
@@ -20,7 +20,7 @@ public class Matriculas {
     private double valorPago;
 
     @OneToOne
-    @Column(name = "aluno")
+    @JoinColumn(name = "aluno")
     private Pessoas aluno;
 
     @Column(name = "periodo")

@@ -17,7 +17,7 @@ public class Disciplinas {
     private int cargaHoraria;
 
     @OneToOne
-    @Column(name = "professor")
+    @JoinColumn(name = "professor")
     private Pessoas professor;
 
     @Column(name = "limiteAlunos")
