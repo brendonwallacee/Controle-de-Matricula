@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Alunos</title>
+  <title>Pessoas</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link para o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -35,62 +35,41 @@
             <a class="nav-link" href="template.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tela_aluno.html">Aluno</a>
+            <a class="nav-link" href="tela_pessoas.html">Pessoas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tela_professor.html">Professor</a>
+            <a class="nav-link" href="tela_disciplina.html">Disciplinas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tela_disciplina.html">Disciplina</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tela_matricula.html">Matrícula</a>
+            <a class="nav-link" href="tela_matricula.html">Matrículas</a>
           </li>
         </ul>
       </div>
     </nav>
 
 <div class="container mt-5">
-  <h1 class="mb-4">Lista de Alunos</h1>
+  <h1 class="mb-4">Lista de Pessoas</h1>
   <div class="row mb-4">
     <div class="col-md-8">
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadastroModal">Cadastrar Aluno</button>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8">
-      <table class="table">
+    <div class="col-md-10">
+      <table id="tabelaPessoas" class="table">
         <thead>
           <tr>
             <th>#</th>
             <th>Nome</th>
-            <th>Email</th>
-            <th>Curso</th>
+            <th>Endereço</th>
+            <th>UF</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>E-mail</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>João</td>
-            <td>joao@example.com</td>
-            <td>Curso A</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-sm">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Maria</td>
-            <td>maria@example.com</td>
-            <td>Curso B</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-sm">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm">Excluir</button>
-            </td>
-          </tr>
-          <!-- Adicione mais linhas para mais alunos -->
         </tbody>
       </table>
     </div>
@@ -102,39 +81,44 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Aluno</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Pessoa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <input type="hidden" id="pessoaIdInput" value="">
         <form>
           <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite o nome do aluno">
+            <input type="text" class="form-control" id="nome" placeholder="Digite o nome da pessoa">
           </div>
           <div class="form-group">
             <label for="cpf">CPF:</label>
-            <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf do aluno">
+            <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf da pessoa">
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Digite o email do aluno">
+            <input type="email" class="form-control" id="email" placeholder="Digite o email da pessoa">
           </div>
           <div class="form-group">
             <label for="endereco">Endereço:</label>
-            <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço do aluno">
+            <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço da pessoa">
           </div>
           <div class="form-group">
             <label for="uf">UF:</label>
-            <input type="text" class="form-control" id="uf" placeholder="Digite o endereço do aluno">
+            <input type="text" class="form-control" id="uf" placeholder="Digite o UF da pessoa">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone da pessoa">
           </div>
 
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <button id="salvar_btn" type="button" class="btn btn-primary">Salvar</button>
       </div>
     </div>
   </div>
@@ -143,5 +127,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/pessoas_script.js"></script>
 </body>
 </html>

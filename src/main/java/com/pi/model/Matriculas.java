@@ -2,6 +2,8 @@ package com.pi.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "matriculas")
 public class Matriculas {
@@ -10,21 +12,44 @@ public class Matriculas {
     private int idMat;
 
     @ManyToOne
-    @JoinColumn(name = "disciplina")
+    @JoinColumn(name = "disciplina_id")
     private Disciplinas disciplina;
 
     @Column(name = "dataMatricula")
-    private int dataMatricula;
+    private LocalDateTime dataMatricula;
 
     @Column(name = "valorPago")
     private double valorPago;
 
     @OneToOne
-    @JoinColumn(name = "aluno")
+    @JoinColumn(name = "aluno_id")
     private Pessoas aluno;
 
     @Column(name = "periodo")
     private int periodo;
+
+    public static Matriculas of(Matriculas request) {
+        var matricula = new Matriculas();
+        matricula.setDisciplina(new Disciplinas(request.getDisciplina().getId()));
+        matricula.setDataMatricula(LocalDateTime.now());
+        matricula.setValorPago(request.getValorPago());
+        matricula.setAluno(new Pessoas(request.getAluno().getId()));
+        matricula.setPeriodo(request.getPeriodo());
+        return matricula;
+    }
+
+    public Matriculas() {
+
+    }
+
+    public Matriculas(int idMat, Disciplinas disciplina, LocalDateTime dataMatricula, double valorPago, Pessoas aluno, int periodo) {
+        this.idMat = idMat;
+        this.disciplina = disciplina;
+        this.dataMatricula = dataMatricula;
+        this.valorPago = valorPago;
+        this.aluno = aluno;
+        this.periodo = periodo;
+    }
 
     public int getIdMat() {
         return idMat;
@@ -42,11 +67,11 @@ public class Matriculas {
         this.disciplina = disciplina;
     }
 
-    public int getDataMatricula() {
+    public LocalDateTime getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(int dataMatricula) {
+    public void setDataMatricula(LocalDateTime dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 

@@ -29,7 +29,7 @@ public class PessoasController {
         return pessoasService.getPessoasByID(id);
     }
 
-    @GetMapping("{id}/delete")
+    @DeleteMapping("{id}/delete")
     public void deleteId(@PathVariable int id) {
         pessoasService.deletePessoasByID(id);
     }

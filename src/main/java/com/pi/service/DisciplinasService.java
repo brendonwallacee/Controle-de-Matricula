@@ -19,8 +19,9 @@ public class DisciplinasService {
     }
 
     public void save(Disciplinas dsp) {
+        var disciplina = Disciplinas.of(dsp);
 
-        disciplinasRepository.save(dsp);
+        disciplinasRepository.save(disciplina);
     }
 
     public Disciplinas getDisciplinasByID(int codigo) {

@@ -18,7 +18,9 @@ public class MatriculasService{
     }
 
     public void save(Matriculas mat) {
-        this.matriculasRepository.save(mat);
+        var matricula = Matriculas.of(mat);
+
+        matriculasRepository.save(matricula);
     }
 
     public Matriculas getMatriculasByID(int idMat) {

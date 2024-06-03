@@ -1,6 +1,6 @@
 package com.pi.model;
 
-import jakarta.persistence.Column;
+import  jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Pessoas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPessoa;
+    private int id;
 
     @Column(name = "nomePessoa")
     private String nomePessoa;
@@ -32,12 +32,29 @@ public class Pessoas {
     @Column(name = "email")
     private String email;
 
-    public int getIdPessoa() {
-        return idPessoa;
+    public Pessoas() {}
+
+    public Pessoas(int id) {
+        this.id = id;
     }
 
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
+    public Pessoas(int id, String nomePessoa, String endereco, String uf, String telefone, String cpf,
+                  String email) {
+        this.id = id;
+        this.nomePessoa = nomePessoa;
+        this.endereco = endereco;
+        this.uf = uf;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomePessoa() {

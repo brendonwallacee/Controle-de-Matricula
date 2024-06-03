@@ -29,7 +29,7 @@ public class MatriculasController {
         return matriculasService.getMatriculasByID(id);
     }
 
-    @GetMapping("{id}/delete")
+    @DeleteMapping("{id}/delete")
     public void deleteId(@PathVariable int id) {
         matriculasService.deleteMatriculasByID(id);
     }
