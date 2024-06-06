@@ -1,5 +1,6 @@
 package com.pi.model;
 
+import com.pi.dto.MatriculaRequest;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -28,13 +29,13 @@ public class Matriculas {
     @Column(name = "periodo")
     private int periodo;
 
-    public static Matriculas of(Matriculas request) {
+    public static Matriculas of(MatriculaRequest matriculaRequest, Pessoas aluno, Disciplinas disciplinas) {
         var matricula = new Matriculas();
-        matricula.setDisciplina(new Disciplinas(request.getDisciplina().getId()));
+        matricula.setAluno(aluno);
+        matricula.setDisciplina(disciplinas);
+        matricula.setValorPago(matriculaRequest.getValorPago());
+        matricula.setPeriodo(matriculaRequest.getPeriodo());
         matricula.setDataMatricula(LocalDateTime.now());
-        matricula.setValorPago(request.getValorPago());
-        matricula.setAluno(new Pessoas(request.getAluno().getId()));
-        matricula.setPeriodo(request.getPeriodo());
         return matricula;
     }
 

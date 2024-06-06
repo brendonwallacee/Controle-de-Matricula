@@ -73,28 +73,28 @@ function editarPessoa(event) {
         .then(response => response.json())
         .then(pessoa => {
             // Preencher campos do modal
-            const nomeInput = document.getElementById('nome');
+            const nomeInput = document.getElementById('nomeEdit');
             nomeInput.value = pessoa.nomePessoa;
 
-            const cpfInput = document.getElementById('cpf');
+            const cpfInput = document.getElementById('cpfEdit');
             cpfInput.value = pessoa.cpf;
 
-            const emailInput = document.getElementById('email');
+            const emailInput = document.getElementById('emailEdit');
             emailInput.value = pessoa.email;
 
-            const enderecoInput = document.getElementById('endereco');
+            const enderecoInput = document.getElementById('enderecoEdit');
             enderecoInput.value = pessoa.endereco;
 
-            const ufInput = document.getElementById('uf');
+            const ufInput = document.getElementById('ufEdit');
             ufInput.value = pessoa.uf;
 
-            const telefoneInput = document.getElementById('telefone');
+            const telefoneInput = document.getElementById('telefoneEdit');
             telefoneInput.value = pessoa.telefone;
 
-            document.getElementById('pessoaIdInput').value = pessoaId;
+            document.getElementById('pessoaEditIdInput').value = pessoaId;
 
             // Abrir modal de edição pré-existente
-            $('#cadastroModal').modal('show');
+            $('#edicaoModal').modal('show');
         })
         .catch(error => console.error(error));
 }
@@ -126,14 +126,56 @@ function excluirPessoa(event) {
     }
 }
 
+function salvarEdicao() {
+    const pessoaId = document.getElementById('pessoaEditIdInput').value;
+
+    const pessoa = {
+        id: pessoaId,
+        nomePessoa: document.getElementById('nomeEdit').value,
+        endereco: document.getElementById('enderecoEdit').value,
+        uf: document.getElementById('ufEdit').value,
+        telefone: document.getElementById('telefoneEdit').value,
+        cpf: document.getElementById('cpfEdit').value,
+        email: document.getElementById('emailEdit').value
+    };
+    console.log(pessoa);
+
+    // Aqui você faria a requisição fetch para enviar os dados editados para o backend
+    fetch(`/pessoas/editar`, {
+        method: 'PUT', // ou 'POST' dependendo da sua API
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(pessoa),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao salvar os dados');
+            }
+            console.log('Resposta do servidor indica sucesso');
+            atualizarLinhaTabela(pessoaId, pessoa);
+            console.log('Dados salvos com sucesso');
+            alert("Dados salvos com sucesso!");
+
+            $('#edicaoModal').modal('hide');
+        })
+
+        .catch(error => {
+            console.error('Erro ao salvar os dados:', error);
+            alert("Erro ao salvar os dados")
+        });
+}
+
+const salvarEdit = document.getElementById('salvarEdit_btn');
+salvarEdit.addEventListener('click', salvarEdicao);
 
 const salvarButton = document.getElementById('salvar_btn');
 salvarButton.addEventListener('click', salvarPessoa);
 
+
 function salvarPessoa() {
-    const pessoaId = document.getElementById('pessoaIdInput').value;
+
     const pessoa = {
-        id: pessoaId, // Obter ID da pessoa (já existente)
         nomePessoa: document.getElementById('nome').value,
         endereco: document.getElementById('endereco').value,
         uf: document.getElementById('uf').value,
@@ -151,8 +193,6 @@ function salvarPessoa() {
     })
         .then(response => {
             if (response.ok) {
-                atualizarLinhaTabela(pessoaId, pessoa);
-
                 $('#cadastroModal').modal('hide');
 
                 alert('Pessoa salva com sucesso!');

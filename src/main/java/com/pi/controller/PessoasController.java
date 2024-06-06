@@ -1,6 +1,7 @@
 package com.pi.controller;
 
-import com.pi.model.Pessoas;
+import com.pi.dto.PessoaRequest;
+import com.pi.dto.PessoaResponse;
 import com.pi.service.PessoasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +16,22 @@ public class PessoasController {
     private PessoasService pessoasService;
 
     @GetMapping
-    public List<Pessoas> buscarTodos() {
+    public List<PessoaResponse> buscarTodos() {
         return pessoasService.getAllPessoas();
     }
 
     @PostMapping("salvar")
-    public void salvarPessoa(@RequestBody Pessoas pessoas) {
-        pessoasService.save(pessoas);
+    public void salvarPessoa(@RequestBody PessoaRequest request) {
+        pessoasService.save(request);
+    }
+
+    @PutMapping("editar")
+    public void editarPessoa(@RequestBody PessoaRequest request) {
+        pessoasService.edit(request);
     }
 
     @GetMapping("{id}")
-    public Pessoas getById(@PathVariable int id) {
+    public PessoaResponse getById(@PathVariable int id) {
         return pessoasService.getPessoasByID(id);
     }
 
@@ -33,5 +39,7 @@ public class PessoasController {
     public void deleteId(@PathVariable int id) {
         pessoasService.deletePessoasByID(id);
     }
+
+
 }
 

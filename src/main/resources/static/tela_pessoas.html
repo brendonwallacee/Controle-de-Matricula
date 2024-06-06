@@ -1,132 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pessoas</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link para o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Seu CSS personalizado -->
     <style>
-      /* Estilo personalizado para o cabeçalho */
-      .navbar {
-        background-color: #343a40; /* Cor de fundo do cabeçalho */
-      }
-      .navbar-brand, .navbar-nav .nav-link {
-        color: #ffffff !important; /* Cor do texto no cabeçalho */
-      }
-      .navbar-brand:hover, .navbar-nav .nav-link:hover {
-        color: #ffffff !important; /* Cor do texto no cabeçalho ao passar o mouse */
-      }
+        /* Estilo personalizado para o cabeçalho */
+        .navbar {
+            background-color: #343a40; /* Cor de fundo do cabeçalho */
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important; /* Cor do texto no cabeçalho */
+        }
+
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #ffffff !important; /* Cor do texto no cabeçalho ao passar o mouse */
+        }
     </style>
 </head>
 <body>
-    <!-- Barra de navegação -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">Sistema Escolar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Sistema Escolar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="template.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tela_pessoas.html">Pessoas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tela_disciplina.html">Disciplinas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tela_matricula.html">Matrículas</a>
-          </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="template.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_pessoas.html">Pessoas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_disciplina.html">Disciplinas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_matricula.html">Matrículas</a>
+            </li>
         </ul>
-      </div>
-    </nav>
+    </div>
+</nav>
 
 <div class="container mt-5">
-  <h1 class="mb-4">Lista de Pessoas</h1>
-  <div class="row mb-4">
-    <div class="col-md-8">
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadastroModal">Cadastrar Aluno</button>
+    <h1 class="mb-4">Lista de Pessoas</h1>
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadastroModal">Cadastrar
+                Pessoa
+            </button>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-10">
-      <table id="tabelaPessoas" class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>UF</th>
-            <th>Telefone</th>
-            <th>CPF</th>
-            <th>E-mail</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+    <div class="row">
+        <div class="col-md-10">
+            <table id="tabelaPessoas" class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>UF</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Modal de Cadastro de Aluno -->
-<div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Pessoa</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="pessoaIdInput" value="">
-        <form>
-          <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite o nome da pessoa">
-          </div>
-          <div class="form-group">
-            <label for="cpf">CPF:</label>
-            <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf da pessoa">
-          </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Digite o email da pessoa">
-          </div>
-          <div class="form-group">
-            <label for="endereco">Endereço:</label>
-            <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço da pessoa">
-          </div>
-          <div class="form-group">
-            <label for="uf">UF:</label>
-            <input type="text" class="form-control" id="uf" placeholder="Digite o UF da pessoa">
-          </div>
-          <div class="form-group">
-            <label for="telefone">Telefone:</label>
-            <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone da pessoa">
-          </div>
+<div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Pessoa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="pessoaIdInput" value="">
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite o email da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="uf">UF:</label>
+                        <input type="text" class="form-control" id="uf" placeholder="Digite o UF da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone da pessoa">
+                    </div>
 
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button id="salvar_btn" type="button" class="btn btn-primary">Salvar</button>
-      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button id="salvar_btn" type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+<div class="modal fade" id="edicaoModal" tabindex="-1" role="dialog" aria-labelledby="exampleEditModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleEditModalLabel">Editar Pessoa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="pessoaEditIdInput" value="">
+                <form>
+                    <div class="form-group">
+                        <label for="nomeEdit">Nome:</label>
+                        <input type="text" class="form-control" id="nomeEdit" placeholder="Digite o nome da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpfEdit">CPF:</label>
+                        <input type="text" class="form-control" id="cpfEdit" placeholder="Digite o cpf da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailEdit">Email:</label>
+                        <input type="email" class="form-control" id="emailEdit" placeholder="Digite o email da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="enderecoEdit">Endereço:</label>
+                        <input type="text" class="form-control" id="enderecoEdit" placeholder="Digite o endereço da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="ufEdit">UF:</label>
+                        <input type="text" class="form-control" id="ufEdit" placeholder="Digite o UF da pessoa">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefoneEdit">Telefone:</label>
+                        <input type="text" class="form-control" id="telefoneEdit" placeholder="Digite o telefone da pessoa">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button id="salvarEdit_btn" type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts/pessoas_script.js"></script>
+<script src="scripts/pessoas_script.js"></script>
 </body>
 </html>

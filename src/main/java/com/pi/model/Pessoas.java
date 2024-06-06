@@ -1,5 +1,6 @@
 package com.pi.model;
 
+import com.pi.dto.PessoaRequest;
 import  jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +32,17 @@ public class Pessoas {
 
     @Column(name = "email")
     private String email;
+
+    public static Pessoas of(PessoaRequest pessoaRequest) {
+        Pessoas pessoas = new Pessoas();
+        pessoas.setNomePessoa(pessoaRequest.getNomePessoa());
+        pessoas.setEndereco(pessoaRequest.getEndereco());
+        pessoas.setUf(pessoaRequest.getUf());
+        pessoas.setTelefone(pessoaRequest.getTelefone());
+        pessoas.setCpf(pessoaRequest.getCpf());
+        pessoas.setEmail(pessoaRequest.getEmail());
+        return pessoas;
+    }
 
     public Pessoas() {}
 

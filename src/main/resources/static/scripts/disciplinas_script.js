@@ -15,7 +15,6 @@ function buscarProfessores() {
 
                 // Adicionar opção ao select
                 professorSelect.appendChild(option);
-                console.log(professorSelect);
                 console.log(professor);
             })
         })
@@ -34,6 +33,7 @@ function buscarDisciplinas() {
             tbody.innerHTML = ''; // Limpar linhas existentes
 
             disciplinas.forEach(disciplina => {
+                console.log(disciplina);
                 const linha = document.createElement('tr');
                 linha.id = disciplina.id;
 
@@ -45,8 +45,8 @@ function buscarDisciplinas() {
                 celulaCargaHoraria.textContent = disciplina.cargaHoraria;
                 const celulaProfessor = document.createElement('th');
                 celulaProfessor.textContent = disciplina.professor.nomePessoa;
-                const celulaLmtAluno = document.createElement('th');
-                celulaLmtAluno.textContent = disciplina.lmtAlunos;
+                const celulaLimiteAluno = document.createElement('th');
+                celulaLimiteAluno.textContent = disciplina.limiteAlunos;
                 const celulaAcoes = document.createElement('th')
 
 
@@ -71,7 +71,7 @@ function buscarDisciplinas() {
                 linha.appendChild(celulaNome);
                 linha.appendChild(celulaProfessor);
                 linha.appendChild(celulaCargaHoraria);
-                linha.appendChild(celulaLmtAluno);
+                linha.appendChild(celulaLimiteAluno);
                 linha.appendChild(celulaAcoes);
 
                 // ... adicionar outras células ...
@@ -95,13 +95,13 @@ function editarDisciplina(event) {
             nomeInput.value = disciplina.nomeDisciplina;
 
             const ProfessorIdInput = document.getElementById('professorId');
-            ProfessorIdInput.value = disciplina.professor;
+            ProfessorIdInput.value = disciplina.professor.id;
 
             const CargaHorariaInput = document.getElementById('carga_horaria');
             CargaHorariaInput.value = disciplina.cargaHoraria;
 
-            const LmtAlunosInput = document.getElementById('limite_alunos');
-            LmtAlunosInput.value = disciplina.lmtAlunos;
+            const LimiteAlunosInput = document.getElementById('limite_alunos');
+            LimiteAlunosInput.value = disciplina.limiteAlunos;
 
 
             document.getElementById('disciplinaIdInput').value = disciplinaId;
@@ -150,8 +150,8 @@ function salvarDisciplina() {
         id: disciplinaId, // Obter ID da pessoa (já existente)
         nomeDisciplina: document.getElementById('nome_disciplina').value,
         cargaHoraria: document.getElementById('carga_horaria').value,
-        professor: document.getElementById('professor').value,
-        lmtAlunos: document.getElementById('limite_alunos').value,
+        professorId: document.getElementById('professorId').value,
+        limiteAlunos: document.getElementById('limite_alunos').value,
     };
     console.log(disciplina);
 
@@ -196,8 +196,8 @@ function atualizarLinhaTabela(disciplinaId, disciplinaAtualizada) {
             const celulaProfessor = linha.querySelector('th:nth-child(4)');
             celulaProfessor.textContent = disciplinaAtualizada.professor;
 
-            const celulaLmtAlunos = linha.querySelector('th:nth-child(5)');
-            celulaLmtAlunos.textContent = disciplinaAtualizada.lmtAlunos;
+            const celulaLimiteAlunos = linha.querySelector('th:nth-child(5)');
+            celulaLimiteAlunos.textContent = disciplinaAtualizada.limiteAlunos;
 
             break; // Parar a iteração após encontrar a linha
         }

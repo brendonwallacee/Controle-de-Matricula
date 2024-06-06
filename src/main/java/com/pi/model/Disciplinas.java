@@ -1,5 +1,6 @@
 package com.pi.model;
 
+import com.pi.dto.DisciplinaRequest;
 import jakarta.persistence.*;
 
 @Entity
@@ -23,12 +24,12 @@ public class Disciplinas {
     @Column(name = "limiteAlunos")
     private int lmtAlunos;
 
-    public static Disciplinas of(Disciplinas request) {
-        var disciplina = new Disciplinas();
-        disciplina.setNomeDisciplina(request.getNomeDisciplina());
-        disciplina.setCargaHoraria(request.getCargaHoraria());
-        disciplina.setProfessor(new Pessoas(request.getProfessor().getId()));
-        disciplina.setLmtAlunos(request.getLmtAlunos());
+    public static Disciplinas of(DisciplinaRequest disciplinaRequest, Pessoas professor) {
+        Disciplinas disciplina = new Disciplinas();
+        disciplina.setNomeDisciplina(disciplinaRequest.getNomeDisciplina());
+        disciplina.setCargaHoraria(disciplinaRequest.getCargaHoraria());
+        disciplina.setProfessor(professor);
+        disciplina.setLmtAlunos(disciplinaRequest.getLimiteAlunos());
         return disciplina;
     }
 

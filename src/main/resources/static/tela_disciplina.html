@@ -10,13 +10,15 @@
     <style>
         /* Estilo personalizado para o cabeçalho */
         .navbar {
-          background-color: #343a40; /* Cor de fundo do cabeçalho */
+            background-color: #343a40; /* Cor de fundo do cabeçalho */
         }
+
         .navbar-brand, .navbar-nav .nav-link {
-          color: #ffffff !important; /* Cor do texto no cabeçalho */
+            color: #ffffff !important; /* Cor do texto no cabeçalho */
         }
+
         .navbar-brand:hover, .navbar-nav .nav-link:hover {
-          color: #ffffff !important; /* Cor do texto no cabeçalho ao passar o mouse */
+            color: #ffffff !important; /* Cor do texto no cabeçalho ao passar o mouse */
         }
     </style>
 </head>
@@ -51,7 +53,9 @@
     <h1 class="mb-4">Lista de disciplina</h1>
     <div class="row mb-4">
         <div class="col-md-10">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadastroModal">Cadastrar disciplina</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadastroModal">Cadastrar
+                disciplina
+            </button>
         </div>
     </div>
     <div class="row">
@@ -85,15 +89,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                <div class="modal-body">
-                    <input type="hidden" id="disciplinaIdInput" value="">
-                    <form>
+            <div class="modal-body">
+                <input type="hidden" id="disciplinaIdInput" value="">
+                <form>
                     <div class="form-group">
                         <label for="nome_disciplina">Disciplina:</label>
                         <input type="text" class="form-control" id="nome_disciplina"
                                placeholder="Digite o nome da disciplina">
                     </div>
-                        <input type="hidden" id="professorId" value="">
+                    <input type="hidden" id="professorId" value="">
                     <div class="form-group">
                         <label for="professor" class="text-white" name="nome-professor">Professores:</label>
                         <select class="form-control" id="professor">
@@ -108,12 +112,12 @@
                         <label for="limite_alunos">Limite de aluno:</label>
                         <input type="number" min="0" class="form-control" id="limite_alunos">
                     </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <input id="salvar_btn" type="submit" class="btn btn-primary" value="Salvar">
-                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input id="salvar_btn" type="submit" class="btn btn-primary" value="Salvar">
                 </div>
+            </div>
         </div>
     </div>
 </div>
