@@ -104,7 +104,9 @@ public class MatriculasService {
     }
 
     private LocalDate converterData(String data) {
-        var format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        logger.info("DATA PASSADA NO PARAMETRO: " + data);
+
+        var format = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
         return LocalDate.parse(data, format);
     }

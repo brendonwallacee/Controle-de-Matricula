@@ -1,3 +1,5 @@
+
+
 const tabelaPessoas = document.getElementById('tabelaPessoas');
 const tbody = tabelaPessoas.querySelector('tbody');
 
@@ -172,7 +174,6 @@ salvarEdit.addEventListener('click', salvarEdicao);
 const salvarButton = document.getElementById('salvar_btn');
 salvarButton.addEventListener('click', salvarPessoa);
 
-
 function salvarPessoa() {
 
     const pessoa = {
@@ -205,7 +206,6 @@ function salvarPessoa() {
         .catch(error => console.error(error));
 
 }
-
 
 function atualizarLinhaTabela(pessoaId, pessoaAtualizada) {
     const linhas = tbody.querySelectorAll('tr');

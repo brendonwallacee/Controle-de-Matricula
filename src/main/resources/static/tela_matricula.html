@@ -46,6 +46,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="tela_matricula.html">Matrículas</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_consultas.html">Consultas</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -80,7 +83,51 @@
     </div>
 </div>
 
-<!-- Modal de Cadastro de Aluno -->
+<div class="modal fade" id="edicaomodal" tabindex="-1" role="dialog" aria-labelledby="exampleEditModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleEditModalLabel">Editar aluno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="matriculaIdEditInput" value="">
+                <form>
+                    <input type="hidden" id="alunoIdEdit" value="">
+                    <div class="form-group">
+                        <label for="alunoEdit" class="text-white" name="nome-aluno">Alunos:</label>
+                        <select class="form-control" id="alunoEdit">
+
+                        </select>
+                    </div>
+                    <input type="hidden" id="disciplinaIdEdit" value="">
+                    <div class="form-group">
+                        <label for="disciplinaEdit" class="text-white" name="nome-disciplina">Disciplinas:</label>
+                        <select class="form-control" id="disciplinaEdit">
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="valorEdit">Valor a Pagar :</label>
+                        <input type="text" min="0" class="form-control" id="valorEdit">
+                    </div>
+                    <div class="form-group">
+                        <label for="periodoEdit">Pediodo:</label>
+                        <input type="number" min="0" class="form-control" id="periodoEdit">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input id="editar_btn" type="button" class="btn btn-primary" value="Salvar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -119,12 +166,13 @@
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input id="salvar_btn" type="button" class="btn btn-primary" placeholder="Salvar">
+                    <input id="salvar_btn" type="button" class="btn btn-primary" value="Salvar">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

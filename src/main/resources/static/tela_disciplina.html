@@ -45,6 +45,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="tela_matricula.html">Matrículas</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_consultas.html">Consultas</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -78,7 +81,49 @@
     </div>
 </div>
 
-<!-- Modal de Cadastro de Aluno -->
+<div class="modal fade" id="edicaoModal" tabindex="-1" role="dialog" aria-labelledby="exampleEditModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleEditModalLabel">Editar disciplina</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="disciplinaEditIdInput" value="">
+                <form>
+                    <div class="form-group">
+                        <label for="nome_disciplinaEdit">Disciplina:</label>
+                        <input type="text" class="form-control" id="nome_disciplinaEdit"
+                               placeholder="Digite o nome da disciplina">
+                    </div>
+                    <input type="hidden" id="professorIdEdit" value="">
+                    <div class="form-group">
+                        <label for="professorEdit" class="text-white" name="nome-professor">Professores:</label>
+                        <select class="form-control" id="professorEdit">
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carga_horariaEdit">Carga horária:</label>
+                        <input type="number" min="0" class="form-control" id="carga_horariaEdit">
+                    </div>
+                    <div class="form-group">
+                        <label for="limite_alunosEdit">Limite de aluno:</label>
+                        <input type="number" min="0" class="form-control" id="limite_alunosEdit">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input id="editar_btn" type="submit" class="btn btn-primary" value="Salvar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -90,7 +135,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="disciplinaIdInput" value="">
+                <input type="text" id="disciplinaIdInput" value="">
                 <form>
                     <div class="form-group">
                         <label for="nome_disciplina">Disciplina:</label>
@@ -121,7 +166,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

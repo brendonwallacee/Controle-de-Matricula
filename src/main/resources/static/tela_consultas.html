@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Sistema Escolar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="template.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_pessoas.html">Pessoas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_disciplina.html">Disciplinas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_matricula.html">Matrículas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tela_consultas.html">Consultas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Consultas</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2 class="mb-3">Disciplinas por Pessoa</h2>
+            <form id="consultaDisciplinasForm">
+                <div class="form-row">
+                    <input type="hidden" id="professorId" value="">
+                    <div class="col-md-6 mb-3">
+                        <label for="pessoaNome" class="text-white" name="nome-pessoa">Pessoas:</label>
+                        <select class="form-control" id="pessoaNome">
+
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" id="consultarDisciplinasBtn">Consultar</button>
+            </form>
+            <table id="tabelaDisciplinas" class="table mt-4">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome da Disciplina</th>
+                    <th>Descrição</th>
+                    <th>Professor</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2 class="mb-3">Faturamento</h2>
+            <form id="consultaFaturamentoForm">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="disciplinaId">ID da Disciplina:</label>
+                        <input type="text" class="form-control" id="disciplinaId" placeholder="Digite o ID da Disciplina">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="dataInicio">Data de Início:</label>
+                        <input type="date" class="form-control" id="dataInicio">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="dataFim">Data de Fim:</label>
+                        <input type="date" class="form-control" id="dataFim">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" id="consultarFaturamentoBtn">Consultar</button>
+            </form>
+            <table id="tabelaFaturamento" class="table mt-4">
+                <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Valor Faturado</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="scripts/consultas_script.js"></script>
+
+</body>
+</html>
